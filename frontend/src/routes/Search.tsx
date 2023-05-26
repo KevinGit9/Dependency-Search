@@ -1,7 +1,7 @@
 import React from "react";
-import SearchBar from "../components/SearchBar";
+import DependencySearch from "../components/DependencySearch";
 
-function DependencySearch() {
+function Search() {
     const handleSearch = (query: string) => {
         // Perform search logic with the query
         console.log('Performing search for:', query);
@@ -10,9 +10,9 @@ function DependencySearch() {
     return (
         <div>
             <h1>Dependency Search</h1>
-            <SearchBar onSearch={handleSearch}></SearchBar>
+            <DependencySearch/>
         </div>
     )
 }
 
-export default DependencySearch;
+export default Search;

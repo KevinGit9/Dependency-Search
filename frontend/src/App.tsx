@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import DependencySearch from './routes/DependencySearch';
+import Search from './routes/Search';
 import Home from './routes/Home';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Routes>
           <Route path="/" element={ <Home/> } />
-          <Route path="/search" element={ <DependencySearch/> } />
+          <Route path="/search" element={ <Search/> } />
       </Routes>
     </div>
   );

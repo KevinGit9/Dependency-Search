@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 interface SearchBarProps {
+    label: string;
     onSearch: (query: string) => void;
 }
 
@@ -18,18 +19,18 @@ function SearchBar(search: SearchBarProps) {
 
     return (
         <div>
-            <input
-                type = "text"
-                placeholder="Search here"
-                onChange={handleChange}
-                onKeyDown={(e) => {
-                    if (e.key === "Enter") 
-                        {handleSearch()}
-                    }
-                }
-                value={searchInput}
-            />
-            <button onClick={handleSearch}> Search </button>
+            <label>
+                {search.label}
+                <input
+                    type="text"
+                    placeholder="Search here"
+                    onChange={handleChange}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") { handleSearch() }
+                    }}
+                    value={searchInput}
+                />
+            </label>
         </div>
     )
 }
