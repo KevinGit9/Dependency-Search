@@ -16,6 +16,7 @@ function DependencySearch() {
 
     const handleSearch = (dependencyName: string, fromVersion: string, toVersion: string) => {
         // API call
+        console.log(`dependency name: ${dependencyName}, from version: ${fromVersion}, to version: ${toVersion}`);
     };
 
     return (
@@ -35,9 +36,20 @@ function DependencySearch() {
                 <button onClick={() => setRange(true)}> Version Range </button>
             </div>
             {range ? ( // if range is true VersionRange, else SearchBar
-                <VersionRange fromVersion={setFromVersion} toVersion={setToVersion} />
+                <VersionRange 
+                    setFromVersion={setFromVersion} 
+                    setToVersion={setToVersion} 
+                    fromVersion={fromVersion} 
+                    toVersion={toVersion}
+                />
             ) : (
-                <SearchBar label="Version:" onSearch={() => handleSearch(dependencyName, fromVersion, toVersion)} />
+                <SearchBar 
+                    label="Version:" 
+                    onSearch={(query) => {
+                        setFromVersion(query);
+                        setToVersion(query);
+                    }}
+                />
             )}
 
             <button onClick={() => handleSearch(dependencyName, fromVersion, toVersion)}> Search </button>

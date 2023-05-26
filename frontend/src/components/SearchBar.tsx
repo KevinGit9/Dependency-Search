@@ -11,11 +11,9 @@ function SearchBar(search: SearchBarProps) {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         setSearchInput(e.target.value);
+        search.onSearch(e.target.value);
     };
 
-    const handleSearch = () => {
-        search.onSearch(searchInput);
-    };
 
     return (
         <div>
@@ -25,9 +23,6 @@ function SearchBar(search: SearchBarProps) {
                     type="text"
                     placeholder="Search here"
                     onChange={handleChange}
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter") { handleSearch() }
-                    }}
                     value={searchInput}
                 />
             </label>

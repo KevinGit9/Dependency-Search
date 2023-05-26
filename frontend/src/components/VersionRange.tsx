@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 
 interface VersionRangeProps {
-    fromVersion: any
-    toVersion: any
+    fromVersion: string;
+    toVersion: string;
+    setFromVersion: (value: string) => void;
+    setToVersion: (value: string) => void;
 }
 
-function VersionRange(functions: VersionRangeProps) {
-    const [fromVersion, setFromVersion] = useState('');
-    const [toVersion, setToVersion] = useState('');
-
+function VersionRange(props: VersionRangeProps) {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>, setter: any) => {
         e.preventDefault();
         setter(e.target.value);
@@ -21,13 +20,13 @@ function VersionRange(functions: VersionRangeProps) {
                 <input
                     type = "text"
                     placeholder="Version"
-                    onChange={(e) => handleChange(e, functions.fromVersion)}
+                    onChange={(e) => handleChange(e, props.setFromVersion)}
                     onKeyDown={(e) => {
                         if (e.key === "Enter")     
                             console.log("hello")
                         }
                     }
-                    value={fromVersion}
+                    value={props.fromVersion}
                 />
             </label>
             <label>
@@ -35,13 +34,13 @@ function VersionRange(functions: VersionRangeProps) {
                 <input
                     type = "text"
                     placeholder="Version"
-                    onChange={(e) => handleChange(e, functions.toVersion)}
+                    onChange={(e) => handleChange(e, props.setToVersion)}
                     onKeyDown={(e) => {
                         if (e.key === "Enter")     
                             console.log("hello")
                         }
                     }
-                    value={toVersion}
+                    value={props.toVersion}
                 />
             </label>
         </div>
