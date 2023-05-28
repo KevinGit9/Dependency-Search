@@ -14,7 +14,7 @@ function VersionRange(props: VersionRangeProps) {
     };
 
     return (
-        <div>
+        <div className="versionRangePanel">
             <label>
                 From:
                 <input

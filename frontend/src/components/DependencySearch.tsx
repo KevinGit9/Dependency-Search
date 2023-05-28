@@ -54,7 +54,7 @@ function DependencySearch() {
                     />
                 )}
             </div>
-            <button onClick={() => handleSearch(dependencyName, fromVersion, toVersion)}> Search </button>
+            <button className="searchButton" onClick={() => handleSearch(dependencyName, fromVersion, toVersion)}> Search </button>
         </div>
     )
 }

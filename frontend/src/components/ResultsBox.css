@@ -1,9 +1,12 @@
 .resultsBoxPanel {
-    padding-top: 5%;
+    margin-top: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    background-color: #0E1822;
 }
 
 .resultsBorder {
