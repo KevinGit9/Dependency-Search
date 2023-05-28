@@ -1,6 +1,8 @@
 import React from "react";
 import DependencySearch from "../components/DependencySearch";
 import SearchResult from "../components/SearchResult";
+import "./Search.css";
+import ResultsBox from "../components/ResultsBox";
 
 function Search() {
     const handleSearch = (query: string) => {
@@ -9,11 +11,10 @@ function Search() {
     };
 
     return (
-        <div>
-            <h1>Dependency Search</h1>
+        <div className="searchPanel">
             <DependencySearch/>
-            <SearchResult/>
-            <div style={{ height: "2000px" }}>
+            <ResultsBox/>
+            <div style={{ height: "1000px" }}>
             </div>
         </div>
     )

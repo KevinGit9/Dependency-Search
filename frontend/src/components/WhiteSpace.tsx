@@ -2,7 +2,7 @@ import React from "react";
 
 function WhiteSpace() {
     return (
-        <div style={{ height: "80px" }}>
+        <div style={{ height: "120px" }}>
         </div>
     );
 };
