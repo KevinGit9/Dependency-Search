@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 interface SearchBarProps {
     label: string;
+    placeholder: string;
     onSearch: (query: string) => void;
 }
 
@@ -14,14 +15,13 @@ function SearchBar(search: SearchBarProps) {
         search.onSearch(e.target.value);
     };
 
-
     return (
         <div>
             <label>
                 {search.label}
                 <input
                     type="text"
-                    placeholder="Search here"
+                    placeholder={search.placeholder}
                     onChange={handleChange}
                     value={searchInput}
                 />

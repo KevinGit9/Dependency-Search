@@ -7,9 +7,8 @@ function Home() {
         <div>
             <h1> Project D - Home </h1>
             <Button onClick={() => alert('Button clicked')}> Test Button </Button>
-            <div>
-                <Link to="search"> Click to view search page </Link>
-            </div>
+        <div style={{ height: "2000px" }}>
+        </div>
         </div>
     )
 }

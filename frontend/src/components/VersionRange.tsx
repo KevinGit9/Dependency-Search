@@ -18,28 +18,26 @@ function VersionRange(props: VersionRangeProps) {
             <label>
                 From:
                 <input
-                    type = "text"
-                    placeholder="Version"
+                    id="fromVersionInput"
+                    type="text"
+                    placeholder="From version..."
                     onChange={(e) => handleChange(e, props.setFromVersion)}
                     onKeyDown={(e) => {
-                        if (e.key === "Enter")     
-                            console.log("hello")
+                        if (e.key === "Enter") {
+                            e.preventDefault();
+                            document.getElementById("toVersionInput")?.focus();
                         }
-                    }
+                    }}
                     value={props.fromVersion}
                 />
             </label>
             <label>
                 To:
                 <input
-                    type = "text"
-                    placeholder="Version"
+                    id="toVersionInput"
+                    type="text"
+                    placeholder="To version..."
                     onChange={(e) => handleChange(e, props.setToVersion)}
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter")     
-                            console.log("hello")
-                        }
-                    }
                     value={props.toVersion}
                 />
             </label>

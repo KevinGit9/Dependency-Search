@@ -25,7 +25,7 @@ function DependencySearch() {
                 Dependency Name:
                 <input
                     type="text"
-                    placeholder="Search dependency"
+                    placeholder="Search dependency..."
                     onChange={(e) => handleChange(e, setDependencyName)}
                     value={dependencyName}
                 />
@@ -44,7 +44,8 @@ function DependencySearch() {
                 />
             ) : (
                 <SearchBar 
-                    label="Version:" 
+                    label="Version:"
+                    placeholder="Search for version..."
                     onSearch={(query) => {
                         setFromVersion(query);
                         setToVersion(query);

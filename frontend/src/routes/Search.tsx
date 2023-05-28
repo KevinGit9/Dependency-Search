@@ -11,6 +11,8 @@ function Search() {
         <div>
             <h1>Dependency Search</h1>
             <DependencySearch/>
+            <div style={{ height: "2000px" }}>
+            </div>
         </div>
     )
 }
