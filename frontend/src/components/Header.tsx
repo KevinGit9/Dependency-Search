@@ -21,12 +21,14 @@ const Header: React.FC = () => {
     };
   }, [prevScrollPos]);
 
+  const currentPath = window.location.pathname;
+
   return (
     <header className={`header ${isHeaderVisible ? "" : "header-hidden"}`}>
       <img src={"schubergphilis.jpg"} alt="Example" onClick={() => window.location.href = "/"}/>
       <div className="navigationButtons">
-        <a href="/"> Home </a>
-        <a href="/search"> Search </a>
+        <a href="/" className={currentPath === "/" ? "active" : ""}> Home </a>
+        <a href="/search" className={currentPath === "/search" ? "active" : ""}> Search </a>
         <a href="/"> Upload </a>
       </div>
     </header>
