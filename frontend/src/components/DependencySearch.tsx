@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Children, useState } from "react";
 import VersionRange from "./VersionRange";
 import SearchBar from "./SearchBar";
 import "./DependencySearch.css";
@@ -7,6 +7,7 @@ function DependencySearch() {
     const [dependencyName, setDependencyName] = useState('');
     const [fromVersion, setFromVersion] = useState('');
     const [toVersion, setToVersion] = useState('');
+    const [errorMessage, setErrorMessage] = useState(false);
     const [range, setRange] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>, setter: any) => {
@@ -16,8 +17,22 @@ function DependencySearch() {
 
     const handleSearch = (dependencyName: string, fromVersion: string, toVersion: string) => {
         // API call
+        if (dependencyName === '' || fromVersion === '' || toVersion === '') {
+            setErrorMessage(true);
+            return;
+        }
+        setErrorMessage(false);
         console.log(`dependency name: ${dependencyName}, from version: ${fromVersion}, to version: ${toVersion}`);
+        scrollDown();
     };
+
+    const scrollHeight = 0.23 * document.documentElement.scrollHeight;
+    const scrollDown = () => {
+        window.scrollBy({
+            top: scrollHeight,
+            behavior: 'smooth'
+        });
+    }
 
     return (
         <div className="dependencySearchPanel">
@@ -53,6 +68,9 @@ function DependencySearch() {
                         }}
                     />
                 )}
+            </div>
+            <div className="errorMessage">
+                {errorMessage ? (<p> Not all fields have been filled in! </p>) : (<p></p>)}
             </div>
             <button className="searchButton" onClick={() => handleSearch(dependencyName, fromVersion, toVersion)}> Search </button>
         </div>

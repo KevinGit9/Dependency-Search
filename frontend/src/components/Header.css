@@ -42,7 +42,6 @@
 
 .navigationButtons a:hover {
     background-color: #ccc;
-    color: black;
 }
 
 .navigationButtons a.active {

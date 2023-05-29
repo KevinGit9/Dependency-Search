@@ -1,8 +1,7 @@
 import React from "react";
 import DependencySearch from "../components/DependencySearch";
-import SearchResult from "../components/SearchResult";
-import "./Search.css";
 import ResultsBox from "../components/ResultsBox";
+import "./Search.css";
 
 function Search() {
     const handleSearch = (query: string) => {

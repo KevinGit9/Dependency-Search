@@ -5,9 +5,19 @@ import "./ResultsBox.css";
 function ResultsBox() {
     return (
         <div className="resultsBoxPanel">
+            <h1> Search Results </h1>
             <div className="resultsBorder">
-                <a> numberCount Projects Found</a>
+                <h3> "numberCount" Projects Found</h3>
                 <div className="resultsPanel">
+                    <SearchResult />
+                    <SearchResult />
+                    <SearchResult />
+                    <SearchResult />
+                    <SearchResult />
+                    <SearchResult />
+                    <SearchResult />
+                    <SearchResult />
+                    <SearchResult />
                     <SearchResult />
                     <SearchResult />
                     <SearchResult />
