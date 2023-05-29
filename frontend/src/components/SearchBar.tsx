@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 interface SearchBarProps {
+    label: string;
+    placeholder: string;
     onSearch: (query: string) => void;
 }
 
@@ -10,26 +12,20 @@ function SearchBar(search: SearchBarProps) {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         setSearchInput(e.target.value);
-    };
-
-    const handleSearch = () => {
-        search.onSearch(searchInput);
+        search.onSearch(e.target.value);
     };
 
     return (
         <div>
-            <input
-                type = "text"
-                placeholder="Search here"
-                onChange={handleChange}
-                onKeyDown={(e) => {
-                    if (e.key === "Enter") 
-                        {handleSearch()}
-                    }
-                }
-                value={searchInput}
-            />
-            <button onClick={handleSearch}> Search </button>
+            <label>
+                {search.label}
+                <input
+                    type="text"
+                    placeholder={search.placeholder}
+                    onChange={handleChange}
+                    value={searchInput}
+                />
+            </label>
         </div>
     )
 }

@@ -1,0 +1,23 @@
+.resultsBoxPanel {
+    margin-top: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #0E1822;
+}
+
+.resultsBorder {
+    background-color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resultsPanel {
+    width: 90%;
+    border: 1px solid #ccc;
+}

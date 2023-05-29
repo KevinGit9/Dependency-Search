@@ -1,14 +1,21 @@
 import React from "react";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
+import "./Home.css"
 
 function Home() {
     return (
         <div>
             <h1> Project D - Home </h1>
-            <Button onClick={() => alert('Button clicked')}> Test Button </Button>
-            <div>
-                <Link to="search"> Click to view search page </Link>
+            <div style={{ height: "760px" }}>
+                <Button onClick={() => alert('Button clicked')}> Test Button </Button>
+            </div>
+            <div style={{ height: "100vh", background: "#0E1822" }}>
+                <div className="circle-container">
+                    <button className="upper-half" onClick={() => alert("pressed upper button")}></button>
+                    <button className="bottom-half" onClick={() => alert("pressed lower button")}></button>
+                </div>
+            </div>
+            <div style={{ height: "100vh" }}>
             </div>
         </div>
     )
