@@ -18,6 +18,28 @@ namespace backend.Controllers
         public async Task<IActionResult> GetAllDocuments()
         {
             var documents = await _sbomService.GetAllDocuments();
+            if (documents == null || documents.Count == 0)
+                return NotFound();
+
+            return Ok(documents);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetDocumentById(string id)
+        {
+            var documents = await _sbomService.GetDocumentById(id);
+            if (documents == null || documents.Count == 0)
+                return NotFound();
+
+            return Ok(documents);
+        }
+
+        [HttpGet("{dependencyName}/{minVersion}/{maxVersion}")]
+        public async Task<IActionResult> DependencySearch(string dependencyName, string minVersion, string maxVersion) {
+            var documents = await _sbomService.DependencySearch(dependencyName, minVersion, maxVersion);
+            if (documents == null || documents.Count == 0)
+                return NotFound();
+
             return Ok(documents);
         }
     }
