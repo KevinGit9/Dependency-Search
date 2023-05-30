@@ -29,7 +29,7 @@ function DependencySearch(props: DependencySearchProps) {
         setErrorMessage(false);
         async function fetchData() {
             const results = (await SearchDependency(dependencyName, fromVersion, toVersion));
-            props.searchResults = results;
+            props.searchResults(results);
         }
         fetchData();
         scrollDown();
