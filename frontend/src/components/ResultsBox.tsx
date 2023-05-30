@@ -8,15 +8,16 @@ interface ResultsBoxProps {
 
 function ResultsBox(props: ResultsBoxProps) {
     const [results, setResults] = useState<any>([]);
-    setResults(props.searchResults);
+    let resultsCount: number = props.searchResults.length;
+    //setResults(props.searchResults);
 
     return (
         <div className="resultsBoxPanel">
             <h1> Search Results </h1>
             <div className="resultsBorder">
-                <h3> "numberCount" Projects Found</h3>
+                <h3> {resultsCount} Projects Found</h3>
                 <div className="resultsPanel">
-                    {results.map((result: { projectName: string; dependency: string; version: string; }, index: React.Key | null | undefined) => {
+                    {props.searchResults.map((result: { projectName: string; dependency: string; version: string; }, index: React.Key | null | undefined) => {
                         return(<SearchResult key={index} projectName={result.projectName} dependency={result.dependency} version={result.version}/>)
                     })}
                 </div>
