@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SearchResult from "./SearchResult";
 import "./ResultsBox.css";
 
@@ -13,7 +13,10 @@ function ResultsBox(props: ResultsBoxProps) {
         <div className="resultsBoxPanel">
             <h1> Search Results </h1>
             <div className="resultsBorder">
-                <h3> {resultsCount} Projects Found</h3>
+                {resultsCount > 0 ?
+                    (<h3> {resultsCount} Projects Found </h3>)
+                    :
+                    (<h3> No Projects Found </h3>)}
                 <div className="resultsPanel">
                     <div>
                         {props.searchResults.map((innerArray, index) => (
@@ -27,7 +30,6 @@ function ResultsBox(props: ResultsBoxProps) {
                             </div>
                         ))}
                     </div>
-
                 </div>
             </div>
 

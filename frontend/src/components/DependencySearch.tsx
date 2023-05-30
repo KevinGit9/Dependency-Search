@@ -1,4 +1,4 @@
-import React, { Children, useEffect, useState } from "react";
+import React, { useState } from "react";
 import VersionRange from "./VersionRange";
 import SearchBar from "./SearchBar";
 import "./DependencySearch.css";
@@ -28,8 +28,12 @@ function DependencySearch(props: DependencySearchProps) {
         }
         setErrorMessage(false);
         async function fetchData() {
-            const results = (await SearchDependency(dependencyName, fromVersion, toVersion));
-            props.searchResults(results);
+            try {
+                const results = (await SearchDependency(dependencyName, fromVersion, toVersion));
+                props.searchResults(results);
+            } catch(error) {
+                console.log('An error occurred:', error);
+            }
         }
         fetchData();
         scrollDown();
@@ -40,7 +44,7 @@ function DependencySearch(props: DependencySearchProps) {
         setToVersion('');
     }
 
-    const scrollHeight = 0.23 * document.documentElement.scrollHeight;
+    const scrollHeight = 0.25 * document.documentElement.scrollHeight;
     const scrollDown = () => {
         window.scrollBy({
             top: scrollHeight,
