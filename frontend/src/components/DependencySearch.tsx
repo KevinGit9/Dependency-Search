@@ -12,7 +12,7 @@ function DependencySearch(props: DependencySearchProps) {
     const [dependencyName, setDependencyName] = useState('');
     const [fromVersion, setFromVersion] = useState('');
     const [toVersion, setToVersion] = useState('');
-    const [errorMessage, setErrorMessage] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     const [range, setRange] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>, setter: any) => {
@@ -21,12 +21,11 @@ function DependencySearch(props: DependencySearchProps) {
     };
 
     const handleSearch = (dependencyName: string, fromVersion: string, toVersion: string) => {
-        // API call
         if (dependencyName === '' || fromVersion === '' || toVersion === '') {
-            setErrorMessage(true);
+            setErrorMessage("Not all fields have been filled in!");
             return;
         }
-        setErrorMessage(false);
+        setErrorMessage("");
         async function fetchData() {
             try {
                 const results = (await SearchDependency(dependencyName, fromVersion, toVersion));
@@ -88,7 +87,7 @@ function DependencySearch(props: DependencySearchProps) {
                 )}
             </div>
             <div className="errorMessage">
-                {errorMessage ? (<p> Not all fields have been filled in! </p>) : (<p></p>)}
+                {errorMessage === '' ? (<p></p>) : (<p> {errorMessage} </p>)}
             </div>
             <button className="searchButton" onClick={() => handleSearch(dependencyName, fromVersion, toVersion)}> Search </button>
         </div>

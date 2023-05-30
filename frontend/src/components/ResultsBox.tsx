@@ -32,7 +32,6 @@ function ResultsBox(props: ResultsBoxProps) {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };
