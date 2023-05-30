@@ -1,9 +1,14 @@
-import React, { Children, useState } from "react";
+import React, { Children, useEffect, useState } from "react";
 import VersionRange from "./VersionRange";
 import SearchBar from "./SearchBar";
 import "./DependencySearch.css";
+import { SearchDependency } from "../services/DependencyService";
 
-function DependencySearch() {
+interface DependencySearchProps {
+    searchResults: (query: any) => void;
+}
+
+function DependencySearch(props: DependencySearchProps) {
     const [dependencyName, setDependencyName] = useState('');
     const [fromVersion, setFromVersion] = useState('');
     const [toVersion, setToVersion] = useState('');
@@ -22,9 +27,18 @@ function DependencySearch() {
             return;
         }
         setErrorMessage(false);
-        console.log(`dependency name: ${dependencyName}, from version: ${fromVersion}, to version: ${toVersion}`);
+        async function fetchData() {
+            const results = (await SearchDependency(dependencyName, fromVersion, toVersion));
+            props.searchResults = results;
+        }
+        fetchData();
         scrollDown();
     };
+
+    const resetVersions = () => {
+        setFromVersion('');
+        setToVersion('');
+    }
 
     const scrollHeight = 0.23 * document.documentElement.scrollHeight;
     const scrollDown = () => {
@@ -48,8 +62,8 @@ function DependencySearch() {
             </label>
             <div className="rangePanel">
                 <div className="buttons-container">
-                    <button className={range === false ? "active" : ""} onClick={() => setRange(false)}> Version Specific </button>
-                    <button className={range === true ? "active" : ""} onClick={() => setRange(true)}> Version Range </button>
+                    <button className={range === false ? "active" : ""} onClick={() => { setRange(false); resetVersions() }}> Version Specific </button>
+                    <button className={range === true ? "active" : ""} onClick={() => { setRange(true); resetVersions() }}> Version Range </button>
                 </div>
                 {range ? ( // if range is true VersionRange, else SearchBar
                     <VersionRange

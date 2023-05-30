@@ -1,18 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import DependencySearch from "../components/DependencySearch";
 import ResultsBox from "../components/ResultsBox";
 import "./Search.css";
 
 function Search() {
-    const handleSearch = (query: string) => {
-        // Perform search logic with the query
-        console.log('Performing search for:', query);
-    };
+    const [results, setResults] = useState<any>([]);
 
     return (
         <div className="searchPanel">
-            <DependencySearch/>
-            <ResultsBox/>
+            <DependencySearch searchResults={setResults}/>
+            <ResultsBox searchResults={results}/>
             <div style={{ height: "1000px" }}>
             </div>
         </div>

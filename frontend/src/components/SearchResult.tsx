@@ -1,10 +1,16 @@
 import React from "react";
 import "./SearchResult.css";
 
-function SearchResult() {
+interface SearchResultProps {
+    projectName: string;
+    dependency: string;
+    version: string;
+}
+
+function SearchResult(props: SearchResultProps) {
     return (
         <div className="searchResultPanel">
-            <a> Project Name - Dependency - Version </a>
+            <a> Project Name: {props.projectName} - Dependency: {props.dependency} - Version: {props.version} </a>
         </div>
     );
 };
