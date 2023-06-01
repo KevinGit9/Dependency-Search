@@ -2,9 +2,8 @@ import subprocess
 import docker
 import os
 
-# Docker images
 client = docker.from_env()
-images = client.images.list("ayves/project-d")
+images = client.images.list("")
 
 # Create the directory if it doesn't exist
 directory = os.path.expanduser("~/Documents/SBOM")
