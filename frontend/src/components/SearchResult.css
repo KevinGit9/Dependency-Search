@@ -10,6 +10,6 @@
     box-shadow: inset -5px 0 5px -5px rgba(0, 0, 0, 0.2), inset 5px 0 5px -5px rgba(0, 0, 0, 0.2);
 }
 
-.searchResultPanel a:hover {
+.searchResultPanel:hover {
     background-color: #ccc;
 }
