@@ -22,6 +22,7 @@
     text-align: left;
     border-radius: 10px;
     border-top: 20px solid #0E1822;
+    width: 42%;
 }
 
 .dependencySearchPanel h1 {
@@ -64,7 +65,7 @@
 }
 
 .dependencySearchPanel .buttons-container button {
-    background-color:  #0E1822;
+    background-color: #0E1822;
 }
 
 .dependencySearchPanel .buttons-container button:hover {
@@ -97,5 +98,12 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    width: 800px;
+}
+
+.errorMessage p {
+    height: 10px;
+    text-align: center;
+    color: red;
+    font-size: 14px;
+    margin: 20px 0px 8px 0px;
 }
