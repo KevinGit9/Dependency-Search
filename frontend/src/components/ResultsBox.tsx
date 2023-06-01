@@ -30,6 +30,9 @@ function ResultsBox(props: ResultsBoxProps) {
                             </div>
                         ))}
                     </div>
+                    <SearchResult projectName="test" dependency="test" version="test"/>
+                    <SearchResult projectName="test" dependency="test" version="test"/>
+                    <SearchResult projectName="test" dependency="test" version="test"/>
                 </div>
             </div>
         </div>

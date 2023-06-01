@@ -1,5 +1,6 @@
-.searchResultPanel a {
-    display: block;
+.searchResultPanel {
+    display: flex;
+    justify-content: space-evenly;
     background-color: #fbf8ff;
     border-top: 8px solid #1E80ED;
     border-bottom: 1px solid #ccc;
