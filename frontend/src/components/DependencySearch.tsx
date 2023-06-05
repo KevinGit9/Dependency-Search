@@ -13,15 +13,37 @@ function DependencySearch(props: DependencySearchProps) {
     const [fromVersion, setFromVersion] = useState('');
     const [toVersion, setToVersion] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const [range, setRange] = useState(false);
+
+    const options = ["Version Specific", "Version Range", "Version From", "Version To"]
+    const [selectedOption, setSelectedOption] = useState("Version Specific");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>, setter: any) => {
         e.preventDefault();
         setter(e.target.value);
     };
 
+    const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        
+        setSelectedOption(event.target.value);
+    };
+
     const handleSearch = (dependencyName: string, fromVersion: string, toVersion: string) => {
-        if (dependencyName === '' || fromVersion === '' || toVersion === '') {
+        console.log(`d: ${dependencyName} f: ${fromVersion} t: ${toVersion}`);
+        if (dependencyName === '') {
+            setErrorMessage("Not all fields have been filled in!");
+            return;
+        }
+        if (
+            (selectedOption === "Version Specific" || selectedOption === "Version Range") &&
+            (fromVersion === '' || toVersion === '')
+        ) {
+            setErrorMessage("Not all fields have been filled in!");
+            return;
+        }
+        if (
+            (selectedOption === "Version From" && fromVersion === '') ||
+            (selectedOption === "Version To" && toVersion === '')
+        ) {
             setErrorMessage("Not all fields have been filled in!");
             return;
         }
@@ -30,7 +52,7 @@ function DependencySearch(props: DependencySearchProps) {
             try {
                 const results = (await SearchDependency(dependencyName, fromVersion, toVersion));
                 props.searchResults(results);
-            } catch(error) {
+            } catch (error) {
                 console.log('An error occurred:', error);
             }
         }
@@ -65,15 +87,32 @@ function DependencySearch(props: DependencySearchProps) {
             </label>
             <div className="rangePanel">
                 <div className="buttons-container">
-                    <button className={range === false ? "active" : ""} onClick={() => { setRange(false); resetVersions() }}> Version Specific </button>
-                    <button className={range === true ? "active" : ""} onClick={() => { setRange(true); resetVersions() }}> Version Range </button>
+                    <select value={selectedOption} onChange={handleOptionChange}>
+                        {options.map((option, id) => (
+                            <option key={id} value={option}>
+                                {option}
+                            </option>
+                        ))}
+                    </select>
                 </div>
-                {range ? ( // if range is true VersionRange, else SearchBar
+                {selectedOption === "Version Range" ? ( // Conditional rendering based on selectedOption
                     <VersionRange
                         setFromVersion={setFromVersion}
                         setToVersion={setToVersion}
                         fromVersion={fromVersion}
                         toVersion={toVersion}
+                    />
+                ) : selectedOption === "Version From" ? (
+                    <SearchBar
+                        label="From Version:"
+                        placeholder="Search from version..."
+                        onSearch={(query) => setFromVersion(query)}
+                    />
+                ) : selectedOption === "Version To" ? (
+                    <SearchBar
+                        label="To Version:"
+                        placeholder="Search up to version.."
+                        onSearch={(query) => setToVersion(query)}
                     />
                 ) : (
                     <SearchBar

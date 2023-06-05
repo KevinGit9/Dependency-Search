@@ -1,16 +1,3 @@
-/*.dependencySearchPanel {
-    display: flex;
-    flex-direction: column;
-    background-color: #257CD9;
-    width: 50%;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.dependencySearchPanel h1 {
-    color: white;
-}*/
-
 .dependencySearchPanel {
     margin: 0 auto;
     padding: 20px 40px;
@@ -50,12 +37,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-right: 50px;
     width: 100px;
     margin-right: 50px;
+    padding: 40px 50px 40px 0px;
 }
 
-.dependencySearchPanel .buttons-container button {
+.dependencySearchPanel .buttons-container select {
     padding: 16px 16px;
     background-color: #0E1822;
     color: white;
@@ -64,15 +51,15 @@
     cursor: pointer;
 }
 
-.dependencySearchPanel .buttons-container button {
+.dependencySearchPanel .buttons-container select {
     background-color: #0E1822;
 }
 
-.dependencySearchPanel .buttons-container button:hover {
+.dependencySearchPanel .buttons-container select:hover {
     background-color: #18293a;
 }
 
-.dependencySearchPanel .buttons-container button.active {
+.dependencySearchPanel .buttons-container select.active {
     background-color: #294765;
 }
 
