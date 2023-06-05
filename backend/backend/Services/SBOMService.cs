@@ -49,9 +49,7 @@ namespace backend
         public async Task<List<string[]>> DependencySearch(string dependencyName, string minVersion, string maxVersion)
         {
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.And(
-                Builders<BsonDocument>.Filter.Eq("components.name", dependencyName),
-                Builders<BsonDocument>.Filter.Gte("components.version", minVersion),
-                Builders<BsonDocument>.Filter.Lte("components.version", maxVersion)
+                Builders<BsonDocument>.Filter.Eq("components.name", dependencyName)
             );
 
             List<BsonDocument> documents = await _collection.Find(filter).ToListAsync();
@@ -68,10 +66,48 @@ namespace backend
                     string componentName = component["name"].AsString;
                     string componentVersion = component["version"].AsString;
                     
-                    if (componentName == dependencyName && string.Compare(componentVersion, minVersion) >= 0 && string.Compare(componentVersion, maxVersion) <= 0)
+                    if (component.Contains("purl")) 
                     {
-                        string[] data = {projectName, componentName, componentVersion};
-                        dataList.Add(data);
+                        string componentPurl = component["purl"].AsString;
+
+                        if (componentName == dependencyName && string.Compare(componentVersion, minVersion) >= 0 && string.Compare(componentVersion, maxVersion) <= 0)
+                        {
+                            string[] data = {projectName, componentName, componentVersion, componentPurl};
+                            dataList.Add(data);
+                        }
+
+                        else if (componentName == dependencyName && string.Compare(componentVersion, minVersion) >= 0 && maxVersion == "-")
+                        {
+                            string[] data = {projectName, componentName, componentVersion, componentPurl};
+                            dataList.Add(data);
+                        }
+
+                        else if (componentName == dependencyName && string.Compare(componentVersion, maxVersion) <= 0 && minVersion == "-")
+                        {
+                            string[] data = {projectName, componentName, componentVersion, componentPurl};
+                            dataList.Add(data);
+                        }
+                    }
+
+                    else 
+                    {
+                        if (componentName == dependencyName && string.Compare(componentVersion, minVersion) >= 0 && string.Compare(componentVersion, maxVersion) <= 0)
+                        {
+                            string[] data = {projectName, componentName, componentVersion};
+                            dataList.Add(data);
+                        }
+
+                        else if (componentName == dependencyName && string.Compare(componentVersion, minVersion) >= 0 && maxVersion == "-")
+                        {
+                            string[] data = {projectName, componentName, componentVersion};
+                            dataList.Add(data);
+                        }
+
+                        else if (componentName == dependencyName && string.Compare(componentVersion, maxVersion) <= 0 && minVersion == "-")
+                        {
+                            string[] data = {projectName, componentName, componentVersion};
+                            dataList.Add(data);
+                        }
                     }
                 }
             }
