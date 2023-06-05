@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../components/Button";
 import "./Home.css"
+import ExportButton from "../components/ExportButton";
 
 function Home() {
     return (
@@ -14,6 +15,7 @@ function Home() {
                     <button className="upper-half" onClick={() => alert("pressed upper button")}></button>
                     <button className="bottom-half" onClick={() => alert("pressed lower button")}></button>
                 </div>
+                <ExportButton onClick={() => alert("hello")} disabled={false}/>
             </div>
             <div style={{ height: "100vh" }}>
             </div>
