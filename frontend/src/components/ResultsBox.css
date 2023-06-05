@@ -21,11 +21,20 @@
 
 .resultsBorder {
     padding: 16px;
-    background-color: white;
+    background-color: #1E80ED;
+    color: white;
     width: 60%;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
+}
+
+.resultsBorderHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
 }
 
 .resultsPanel {

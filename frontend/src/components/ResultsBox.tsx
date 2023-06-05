@@ -1,6 +1,7 @@
 import React from "react";
 import SearchResult from "./SearchResult";
 import "./ResultsBox.css";
+import ExportButton from "./ExportButton";
 
 interface ResultsBoxProps {
     searchResults: any[][];
@@ -14,10 +15,8 @@ function ResultsBox(props: ResultsBoxProps) {
         const formattedDate = currentDate.toISOString().split("T")[0];
         const formattedTime = currentDate.toTimeString().split(" ")[0].replace(/:/g, "-");
 
-        // Convert searchResults to CSV format or any other desired format
+        // Convert searchResults to CSV format
         const csvData = convertToCSV(props.searchResults);
-
-        // Create a Blob from the CSV data
         const blob = new Blob([csvData], { type: 'text/csv' });
 
         // Create a download link and trigger the download
@@ -39,13 +38,13 @@ function ResultsBox(props: ResultsBoxProps) {
         <div className="resultsBoxPanel">
             <h1> Search Results </h1>
             <div className="resultsBorder">
-                {resultsCount > 0 ?
-                    (<h3> {resultsCount} Projects Found </h3>)
-                    :
-                    (<h3> No Projects Found </h3>)}
-                
-                    <button onClick={handleExport}>Export Results</button>
-                
+                <div className="resultsBorderHeader">
+                    {resultsCount > 0 ?
+                        (<h3> {resultsCount} Projects Found </h3>)
+                        :
+                        (<h3> No Projects Found </h3>)}
+                    <ExportButton onClick={handleExport} disabled={resultsCount === 0} />
+                </div>
                 <div className="resultsPanel">
                     <div>
                         {props.searchResults.map((innerArray, index) => (
@@ -59,9 +58,6 @@ function ResultsBox(props: ResultsBoxProps) {
                             </div>
                         ))}
                     </div>
-                    <SearchResult projectName="test" dependency="test" version="test"/>
-                    <SearchResult projectName="test" dependency="test" version="test"/>
-                    <SearchResult projectName="test" dependency="test" version="test"/>
                 </div>
             </div>
         </div>
