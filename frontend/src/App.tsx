@@ -6,7 +6,6 @@ import Home from './routes/Home';
 import Header from './components/Header';
 import WhiteSpace from './components/WhiteSpace';
 import Footer from './components/Footer';
-import Upload from './routes/Upload';
 
 function App() {
   return (
@@ -16,7 +15,6 @@ function App() {
       <Routes>
           <Route path="/" element={ <Home/> } />
           <Route path="/search" element={ <Search/> } />
-          <Route path="/upload" element={ <Upload/> } />
       </Routes>
       <Footer/>
     </div>

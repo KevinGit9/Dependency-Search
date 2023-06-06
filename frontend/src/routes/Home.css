@@ -1,25 +1,123 @@
-.circle-container {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
+.homepageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 200px;
+  padding-top: 100px;
 }
 
-.upper-half,
-.bottom-half {
-  width: 100%;
-  height: 50%;
+.textSection {
+  flex: 1;
 }
 
-.upper-half {
-  top: 0;
-  background-color: red;
+.textSection h1 {
+  font-size: 40px;
+}
+
+.textSection p {
+  font-size: 20px;
+}
+
+.homeButtons button {
+  margin-top: 10px;
+  padding: 22px 16px;
   border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.bottom-half {
-  bottom: 0;
+.startButton {
+  background-color: #0E1822;
+  color: white;
+  margin-right: 10px;
+}
+
+.startButton:hover {
+  background-color: #18293a;
+}
+
+.howButton {
+  background-color: #ccc;
+  color: #0E1822;
+  margin-left: 10px;
+}
+
+.howButton:hover {
+  background-color: #bbb;
+}
+
+.imageSection {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.imageContainer {
+  background-color: #257cd9;
+  padding: 20px 20px 0px 20px;
+  border-top-left-radius: 50%;
+}
+
+.homeImage {
+  object-fit: cover;
+  border-top-left-radius: 50%;
+}
+
+.homepageSteps {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10%;
+}
+
+.homepageSteps h1 {
+  color: white;
+  padding-bottom: 20px;
+}
+
+.homepageSteps button {
+  padding: 22px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 100px;
+  width: 500px;
   background-color: white;
-  border: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.homepageSteps button:hover {
+  background-color: #ccc;
+}
+
+
+.steps {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 0px 80px;
+}
+
+.steps i {
+  padding-bottom: 20px;
+}
+
+.step {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 40px;
+  width: 350px;
+}
+
+.step h2 {
+  color: #000000;
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.step p {
+  color: #000000;
+  font-size: 16px;
+  margin-bottom: 0;
 }

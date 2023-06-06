@@ -29,7 +29,6 @@ const Header: React.FC = () => {
       <div className="navigationButtons">
         <a href="/" className={currentPath === "/" ? "active" : ""}> Home </a>
         <a href="/search" className={currentPath === "/search" ? "active" : ""}> Search </a>
-        <a href="/upload" className={currentPath === "/upload" ? "active" : ""}> Upload </a>
       </div>
     </header>
   );
