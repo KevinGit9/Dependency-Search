@@ -30,7 +30,8 @@ function ResultsBox(props: ResultsBoxProps) {
         // Convert your search results data to CSV format
         // Implement your custom logic here to format the data as CSV
         // Example: Convert array of arrays to CSV format
-        const csvRows = data.map((row) => row.join(','));
+        const columnHeaders = ['Project Name', 'Dependency', 'Version', 'PURL'];
+        const csvRows = [columnHeaders, ...data.map((row) => row.join(','))];
         return csvRows.join('\n');
     };
 
