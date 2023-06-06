@@ -64,7 +64,7 @@ function ResultsBox(props: ResultsBoxProps) {
                     <SearchResult projectName="python:1.0" dependency="test" version="2.0" purl="wdadawdadwdwdwdwdadad"/>
                     <SearchResult projectName="ProjectC-React:4.1" dependency="test" version="2.0" purl="wdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadad"/>
                     <SearchResult projectName="Bitmap:1.1" dependency="test" version="2.0" purl="wdadawdadwdwdwdwdadad"/>
-                    */ }
+                    */}
                 </div>
             </div>
         </div>

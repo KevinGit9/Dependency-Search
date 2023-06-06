@@ -23,7 +23,7 @@ function DependencySearch(props: DependencySearchProps) {
     };
 
     const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        
+        resetVersions();
         setSelectedOption(event.target.value);
     };
 
@@ -106,18 +106,21 @@ function DependencySearch(props: DependencySearchProps) {
                     <SearchBar
                         label="From Version:"
                         placeholder="Search from version..."
+                        searchInput={fromVersion}
                         onSearch={(query) => setFromVersion(query)}
                     />
                 ) : selectedOption === "Version To" ? (
                     <SearchBar
                         label="To Version:"
                         placeholder="Search up to version.."
+                        searchInput={toVersion}
                         onSearch={(query) => setToVersion(query)}
                     />
                 ) : (
                     <SearchBar
                         label="Version:"
                         placeholder="Search for version..."
+                        searchInput={fromVersion}
                         onSearch={(query) => {
                             setFromVersion(query);
                             setToVersion(query);
