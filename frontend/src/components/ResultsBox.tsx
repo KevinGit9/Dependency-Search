@@ -54,10 +54,17 @@ function ResultsBox(props: ResultsBoxProps) {
                                     projectName={innerArray[0]}
                                     dependency={innerArray[1]}
                                     version={innerArray[2]}
+                                    purl={innerArray[3]}
                                 />
                             </div>
                         ))}
                     </div>
+                    {/*
+                    <SearchResult projectName="alpine:2.11" dependency="test" version="2.0" purl="wdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadad"/>
+                    <SearchResult projectName="python:1.0" dependency="test" version="2.0" purl="wdadawdadwdwdwdwdadad"/>
+                    <SearchResult projectName="ProjectC-React:4.1" dependency="test" version="2.0" purl="wdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadad"/>
+                    <SearchResult projectName="Bitmap:1.1" dependency="test" version="2.0" purl="wdadawdadwdwdwdwdadad"/>
+                    */ }
                 </div>
             </div>
         </div>
