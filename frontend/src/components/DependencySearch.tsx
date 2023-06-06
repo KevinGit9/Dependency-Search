@@ -47,6 +47,8 @@ function DependencySearch(props: DependencySearchProps) {
             setErrorMessage("Not all fields have been filled in!");
             return;
         }
+        if (selectedOption === "Version From") toVersion = "-";
+        if (selectedOption === "Version To") fromVersion = "-";
         setErrorMessage("");
         async function fetchData() {
             try {

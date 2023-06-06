@@ -29,9 +29,14 @@ function ResultsBox(props: ResultsBoxProps) {
     const convertToCSV = (data: any[][]) => {
         // Convert your search results data to CSV format
         // Implement your custom logic here to format the data as CSV
-        // Example: Convert array of arrays to CSV format
         const columnHeaders = ['Project Name', 'Dependency', 'Version', 'PURL'];
-        const csvRows = [columnHeaders, ...data.map((row) => row.join(','))];
+        const csvRows = [columnHeaders.join(',')]; // Include column headers in the first row
+
+        data.forEach((row) => {
+            const csvRow = row.map((item) => `"${item}"`).join(','); // Wrap each item in double quotes to handle values with commas
+            csvRows.push(csvRow);
+        });
+
         return csvRows.join('\n');
     };
 
