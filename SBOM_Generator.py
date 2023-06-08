@@ -16,7 +16,7 @@ for image in images:
     file_path = os.path.join(directory, file_name)
 
     # Command to run
-    command = ["syft", "-o", "cyclonedx-json", "--file", file_path, image.tags[1]]
+    command = ["syft", "-o", "cyclonedx-json", "--file", file_path, image.tags[0]]
 
     # Run the command
     process = subprocess.Popen(command)
