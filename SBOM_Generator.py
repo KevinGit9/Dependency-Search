@@ -4,6 +4,7 @@ import os
 
 client = docker.from_env()
 images = client.images.list("")
+sbom_id = 0
 
 # Create the directory if it doesn't exist
 directory = os.path.expanduser("~/Documents/SBOM")
@@ -12,7 +13,7 @@ if not os.path.exists(directory):
 
 for image in images:
     # File location
-    file_name = f"{image.tags[0].split(':')[1]}_SBOM.json"
+    file_name = f"{image.tags[0].split('/')[-1]}_SBOM.json"
     file_path = os.path.join(directory, file_name)
 
     # Command to run
@@ -27,3 +28,5 @@ for image in images:
         print(f"Succesfully created SBOM: {file_name}")
     else:
         print(f"Error SBOM: {file_name} not created")
+
+    sbom_id = sbom_id + 1
