@@ -39,3 +39,7 @@ for filepath in file_paths:
 
 # Close the MongoDB connection
 client.close()
+
+removefilelist = [ f for f in os.listdir(folder_path) if f.endswith(".json") ]
+for f in removefilelist:
+    os.remove(os.path.join(folder_path, f))
