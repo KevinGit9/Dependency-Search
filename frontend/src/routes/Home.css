@@ -2,8 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 200px;
-  padding-top: 100px;
 }
 
 .textSection {
@@ -81,13 +79,14 @@
   cursor: pointer;
   margin-top: 100px;
   width: 500px;
-  background-color: white;
+  background-color: #257cd9;
+  color: white;
   font-weight: bold;
   font-size: 16px;
 }
 
 .homepageSteps button:hover {
-  background-color: #ccc;
+  background-color: #3487e4;
 }
 
 
