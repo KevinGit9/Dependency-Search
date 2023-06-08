@@ -2,4 +2,47 @@
     background-color: #257CD9;
     padding: 20px;
     color: white;
-}
+  }
+
+  .footerHeader {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+  }
+
+  .footerText {
+    padding-left: 17%;
+  }
+  
+  .github-link {
+    display: inline-block;
+    margin-top: 20px;
+  }
+  
+  .github-link img {
+    width: 80px;
+    height: 80px;
+    padding: 0px 0px 0px 50px;
+  }
+  
+  .developers {
+    margin-top: 20px;
+    text-align: left;
+    padding-left: 50px;
+  }
+  
+  .developers h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .developers ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .developers li {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
