@@ -64,10 +64,10 @@ namespace backend
                 foreach (BsonDocument component in components)
                 {
                     string componentName = component["name"].AsString;
-                    string componentVersion = component["version"].AsString;
                     
-                    if (component.Contains("purl")) 
+                    if (component.Contains("version") && component.Contains("purl")) 
                     {
+                        string componentVersion = component["version"].AsString;
                         string componentPurl = component["purl"].AsString;
 
                         if (componentName == dependencyName && string.Compare(componentVersion, minVersion) >= 0 && string.Compare(componentVersion, maxVersion) <= 0)
@@ -89,8 +89,10 @@ namespace backend
                         }
                     }
 
-                    else 
+                    else if (component.Contains("version")) 
                     {
+                        string componentVersion = component["version"].AsString;
+
                         if (componentName == dependencyName && string.Compare(componentVersion, minVersion) >= 0 && string.Compare(componentVersion, maxVersion) <= 0)
                         {
                             string[] data = {projectName, componentName, componentVersion};
@@ -106,6 +108,50 @@ namespace backend
                         else if (componentName == dependencyName && string.Compare(componentVersion, maxVersion) <= 0 && minVersion == "-")
                         {
                             string[] data = {projectName, componentName, componentVersion};
+                            dataList.Add(data);
+                        }
+                    }                    
+
+                    else if (component.Contains("purl")) 
+                    {
+                        string componentPurl = component["purl"].AsString;
+
+                        if (componentName == dependencyName)
+                        {
+                            string[] data = {projectName, componentName, componentPurl};
+                            dataList.Add(data);
+                        }
+
+                        else if (componentName == dependencyName)
+                        {
+                            string[] data = {projectName, componentName, componentPurl};
+                            dataList.Add(data);
+                        }
+
+                        else if (componentName == dependencyName)
+                        {
+                            string[] data = {projectName, componentName, componentPurl};
+                            dataList.Add(data);
+                        }
+                    }
+
+                    else 
+                    {
+                        if (componentName == dependencyName)
+                        {
+                            string[] data = {projectName, componentName};
+                            dataList.Add(data);
+                        }
+
+                        else if (componentName == dependencyName)
+                        {
+                            string[] data = {projectName, componentName};
+                            dataList.Add(data);
+                        }
+
+                        else if (componentName == dependencyName)
+                        {
+                            string[] data = {projectName, componentName};
                             dataList.Add(data);
                         }
                     }
