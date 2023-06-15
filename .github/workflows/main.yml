@@ -21,6 +21,9 @@ jobs:
         
     - name: Install Docker module
       run: pip install docker
+      
+    - name: Install syft
+      run: pip install syft
 
     - name: Run first Python script
       run: python SBOM_Generator.py
