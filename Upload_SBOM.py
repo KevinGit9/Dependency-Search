@@ -2,7 +2,8 @@ import os
 import json
 from pymongo import MongoClient
 
-folder_path = os.path.expanduser("~\Documents\SBOM")
+directory = os.path.abspath(os.getcwd())
+folder_path = os.path.join(directory, r'SBOM')
 
 def get_json_files_from_folder(folder_path):
     json_files = []
