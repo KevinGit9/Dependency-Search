@@ -17,6 +17,7 @@ def get_json_files_from_folder(folder_path):
 file_paths = get_json_files_from_folder(folder_path)
 print(file_paths)
 
+#test 14:07
 
 # Connect to the local MongoDB server
 client = MongoClient('localhost', 27017)
