@@ -13,11 +13,12 @@ if not os.path.exists(directory):
 
 for image in images:
     # File location
-    file_name = f"{image.tags[0].split('/')[-1]}_SBOM.json"
+    file_name = f"{image.tags[0].split(':')[1]}_SBOM_{sbom_id}.json"
     file_path = os.path.join(directory, file_name)
 
     # Command to run
     command = ["syft", "-o", "cyclonedx-json", "--file", file_path, image.tags[0]]
+    print(image.tags[0])
 
     # Run the command
     process = subprocess.Popen(command)
