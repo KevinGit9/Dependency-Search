@@ -26,6 +26,9 @@ jobs:
       run: |
         curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
 
+    - name: Install pymongo
+      run: pip install pymongo
+
     - name: Run first Python script
       run: python SBOM_Generator.py
 
