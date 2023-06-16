@@ -23,7 +23,10 @@ jobs:
       run: pip install docker
       
     - name: Install syft
-      run: pip install syft
+      run: |
+        wget https://github.com/anchore/syft/releases/latest/download/syft_linux_amd64
+        chmod +x syft_linux_amd64
+        mv syft_linux_amd64 /usr/local/bin/syft
 
     - name: Run first Python script
       run: python SBOM_Generator.py
