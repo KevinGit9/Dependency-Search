@@ -1,9 +1,7 @@
 using MongoDB.Bson;
 using MongoDB.Driver;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
-namespace backend
+namespace backend.Services
 {
     public class SBOMService : ISBOMService
     {

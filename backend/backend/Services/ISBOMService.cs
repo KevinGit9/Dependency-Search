@@ -1,8 +1,4 @@
-using MongoDB.Bson;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace backend
+namespace backend.Services
 {
     public interface ISBOMService
     {
