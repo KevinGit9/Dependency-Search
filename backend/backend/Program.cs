@@ -1,7 +1,9 @@
+using backend.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<backend.ISBOMService, backend.SBOMService>();
+builder.Services.AddScoped<ISBOMService, SBOMService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

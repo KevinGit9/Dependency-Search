@@ -1,26 +1,26 @@
-using MongoDB.Driver;
-using MongoDB.Bson;
-
-public class Database
+namespace backend
 {
-    public static string GetConnectionString()
+    public class Database
     {
-        string connectionString = "mongodb://localhost:27017";
+        public static string GetConnectionString()
+        {
+            string connectionString = "mongodb://localhost:27017";
 
-        return connectionString;
-    }
+            return connectionString;
+        }
 
-    public static string GetDatabaseName()
-    {
-        string databaseName = "Project_D";
+        public static string GetDatabaseName()
+        {
+            string databaseName = "Project_D";
 
-        return databaseName;
-    }
+            return databaseName;
+        }
 
-    public static string GetCollectionName()
-    {
-        string collectionName = "Files";
+        public static string GetCollectionName()
+        {
+            string collectionName = "Files";
 
-        return collectionName;
+            return collectionName;
+        }
     }
 }
