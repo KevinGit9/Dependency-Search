@@ -7,7 +7,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
+      const currentScrollPos = window.scrollY;
       const scrollingUp = prevScrollPos > currentScrollPos;
 
       setIsHeaderVisible(scrollingUp);

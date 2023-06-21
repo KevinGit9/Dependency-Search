@@ -12,7 +12,7 @@ function Footer() {
                     className="github-link"
                 >
                     <img
-                        src="github-logo.png" // Replace with your actual GitHub logo URL
+                        src="github-logo.png"
                         alt="GitHub Logo"
                     />
                 </a>

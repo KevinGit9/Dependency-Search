@@ -8,10 +8,8 @@
     left: 0;
     width: 100%;
     height: 4px;
-    z-index: 9999;
-    /* Add z-index to ensure the progress bar is on top */
-    overflow: hidden;
-    /* Hide any overflowing content */
+    z-index: 9999; /* Add z-index to ensure the progress bar is on top */
+    overflow: hidden; /* Hide any overflowing content */
 }
 
 .progressBar {

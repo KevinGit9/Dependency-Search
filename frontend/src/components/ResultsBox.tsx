@@ -27,13 +27,11 @@ function ResultsBox(props: ResultsBoxProps) {
     };
 
     const convertToCSV = (data: any[][]) => {
-        // Convert your search results data to CSV format
-        // Implement your custom logic here to format the data as CSV
         const columnHeaders = ['Project Name', 'Dependency', 'Version', 'PURL'];
         const csvRows = [columnHeaders.join(';')]; // Use semicolon as the delimiter for columns
 
         data.forEach((row) => {
-            const csvRow = row.map((item) => `"${item}"`).join(';'); // Wrap each item in double quotes
+            const csvRow = row.map((item) => `"${item}"`).join(';');
             csvRows.push(csvRow);
         });
 
@@ -46,9 +44,9 @@ function ResultsBox(props: ResultsBoxProps) {
             <div className="resultsBorder">
                 <div className="resultsBorderHeader">
                     {resultsCount > 0 ?
-                        (<h3> {resultsCount} Projects Found </h3>)
+                        (<h3> {resultsCount} Instances Found </h3>)
                         :
-                        (<h3> No Projects Found </h3>)}
+                        (<h3> No Instances Found </h3>)}
                     <ExportButton onClick={handleExport} disabled={resultsCount === 0} />
                 </div>
                 <div className="resultsPanel">
@@ -65,12 +63,6 @@ function ResultsBox(props: ResultsBoxProps) {
                             </div>
                         ))}
                     </div>
-                    {/*
-                    <SearchResult projectName="alpine:2.11" dependency="test" version="2.0" purl="wdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadad"/>
-                    <SearchResult projectName="python:1.0" dependency="test" version="2.0" purl="wdadawdadwdwdwdwdadad"/>
-                    <SearchResult projectName="ProjectC-React:4.1" dependency="test" version="2.0" purl="wdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadadwdadawdadwdwdwdwdadad"/>
-                    <SearchResult projectName="Bitmap:1.1" dependency="test" version="2.0" purl="wdadawdadwdwdwdwdadad"/>
-                    */}
                 </div>
             </div>
         </div>
