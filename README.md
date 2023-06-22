@@ -11,13 +11,13 @@ Our tool will fetch all the SBOMs that contain the dependency you searched for f
 Export the list of projects containing the specified dependency. Gain insights, track dependencies, and make informed decisions when managing and maintaining your software projects.
 
 
-Preparations
+###Preparations
 You need to setup a local MongoDB before you can use this project
 Download MongoDB from the official MongoDB website (https://www.mongodb.com/). Download MongoDB as service and keep the default settings.
-Create a database using the connectionstring, database name, collection name which can be found in the code.
+Create a database using the connectionstring, database name, collection name that can be found in the code.
 
 
-# How does it work?
+## How does it work?
 
 1. Pull Docker Containers
 Start by pulling the Docker containers you want to be able to search dependencies on. (note that this tool will create sboms for *ALL* your local docker containers)
@@ -28,13 +28,26 @@ First run the script SBOM-Generator to generate sboms from all your local docker
 3. Run the script Upload-SBOM
 This will upload the generated sboms to your local MongoDB.
 
-4. dotnet run the backend folder
+4. Restore the backend dependencies and start API.
+To restore the dependencies:
+```
+dotnet restore
+```
+To start the backend API:
 ```
 dotnet run
 ```
 This will start the backend.
 
-5. npm start the frontend folder
+5. Restore the frontend dependencies and start the frontend.
+To restore the dependencies:
+```
+npm ic
+```
+To start the frontend:
+```
+npm start
+```
 This will start the frontend and open a tab on your webbrowser with the web application.
 
 6. Go to search in the web application
