@@ -1,5 +1,4 @@
 .resultsBoxPanel {
-    border: 1px solid #ccc;
     width: 100%;
     background-color: #0E1822;
     display: flex;
@@ -10,7 +9,6 @@
     padding-bottom: 10%;
     text-align: left;
     box-sizing: border-box;
-    margin-right: 1.5px; /*Added because there is a small white bar on the left for some odd reason*/
 }
 
 .resultsBoxPanel h1 {
@@ -34,7 +32,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding-right: 10px;
 }
 
 .resultsPanel {

@@ -1,8 +1,9 @@
 import React from "react";
 import "./Home.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Home() {
+    const navigate = useNavigate();
     const scrollHeight = 800;
     const scrollDown = () => {
         window.scrollTo({
@@ -51,17 +52,20 @@ function Home() {
                             <i className="fas fa-lightbulb fa-2x fa-lg"></i>
                             <h2> 3. Export the Data </h2>
                             <p>
-                                Export the list of projects containing the specified dependency. 
+                                Export the list of projects containing the specified dependency.
                                 Gain insights, track dependencies, and make informed decisions when managing and maintaining your software projects.
                             </p>
                         </div>
                     </div>
-                    <Link to="/search" onClick={window.location.reload}>
-                        <button> Get Started </button>
-                    </Link>
+                    <div>
+                        <button onClick={() => {
+                            navigate("/search");
+                            window.scrollTo(0, 0);
+                        }}>Get Started</button>
+                    </div>
                 </div>
             </div>
-            <div style={{ height: "100vh" }} />
+            
         </div>
     )
 }
