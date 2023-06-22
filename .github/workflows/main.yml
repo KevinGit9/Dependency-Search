@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - Test-Actions
 
 jobs:
   build:
@@ -17,6 +18,16 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.10' 
+        
+    - name: Install Docker module
+      run: pip install docker
+      
+    - name: Install syft
+      run: |
+        curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+
+    - name: Install pymongo
+      run: pip install pymongo
 
     - name: Run first Python script
       run: python SBOM_Generator.py
