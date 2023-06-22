@@ -46,6 +46,7 @@ namespace backend.Services
 
         public async Task<List<string[]>> DependencySearch(string dependencyName, string minVersion, string maxVersion)
         {
+            dependencyName = dependencyName.ToLower();
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.And(
                 Builders<BsonDocument>.Filter.Eq("components.name", dependencyName)
             );
