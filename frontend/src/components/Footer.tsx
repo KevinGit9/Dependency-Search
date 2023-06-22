@@ -6,7 +6,7 @@ function Footer() {
         <footer className="footer">
             <div className="footerHeader">
                 <a
-                    href="https://github.com/KevinGit9/ProjectD"
+                    href="https://github.com/KevinGit9/Dependency-Search"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="github-link"
