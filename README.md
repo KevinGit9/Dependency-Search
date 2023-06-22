@@ -16,7 +16,7 @@ You need to setup a local MongoDB before you can use this project
 
 
 
-How does it work?
+# How does it work?
 
 1. Pull Docker Containers
 Start by pulling the Docker containers you want to be able to search dependencies on. (note that this tool will create sboms for *ALL* your local docker containers)
@@ -28,6 +28,9 @@ First run the script SBOM-Generator to generate sboms from all your local docker
 This will upload the generated sboms to your local MongoDB.
 
 4. dotnet run the backend folder
+```
+dotnet run
+```
 This will start the backend.
 
 5. npm start the frontend folder
