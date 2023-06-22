@@ -10,7 +10,6 @@ function Search() {
         <div className="searchPanel">
             <DependencySearch searchResults={setResults}/>
             <ResultsBox searchResults={results}/>
-            <div style={{ height: "50vh" }} />
         </div>
     )
 }
