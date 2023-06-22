@@ -13,7 +13,7 @@ Export the list of projects containing the specified dependency. Gain insights, 
 
 Preparations
 You need to setup a local MongoDB before you can use this project
-Download MongoDB from the official MongoDB website. Download MongoDB as service and keep the default settings.
+Download MongoDB from the official MongoDB website (https://www.mongodb.com/). Download MongoDB as service and keep the default settings.
 Create a database using the connectionstring, database name, collection name which can be found in the code.
 
 
